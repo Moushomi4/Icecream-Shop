@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Icecream Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background-color: #fff0f5;
+      overflow-x: hidden;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: hotpink;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .navbar ul {
+      display: flex;
+      list-style: none;
+    }
+    .navbar ul li {
+      margin: 0 15px;
+    }
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar img {
+      width: 50px;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+    .main {
+      background: url('assets/back.jpg') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    .main img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+    .butn {
+      background: deepskyblue;
+      padding: 15px 30px;
+      border-radius: 30px;
+      margin-top: 20px;
+    }
+    .butn a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .menu {
+      padding: 40px 20px;
+      background: url('assets/image4.jpg') no-repeat center center/cover;
+      color: white;
+    }
+    .menu-btn{
+        background-color: rgb(0, 98, 255);
+        padding: 10px;
+        height:40px;
+        width:100px;
+        border-radius: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu-btn a{
+        text-decoration: none;
+        color:white;
+    }
+    .menu-top {
+      text-align: center;
+    }
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .item {
+      background: #ffc0cb;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      width: 250px;
+      animation: fadeIn 1s ease forwards;
+    }
+    .item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .price, .prices {
+      margin: 10px 0;
+    }
+    .price {
+      background: hotpink;
+      color: white;
+      padding: 10px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .recipe {
+      background: url('assets/recipe_back2.avif') no-repeat center center/cover;
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+    .rec-btn {
+      background: hotpink;
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+    .rec-btn a {
+      color: white;
+      text-decoration: none;
+    }
+    .form {
+      display: flex;
+      height: 600px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background: #f8d7da;
+      padding: 40px;
+    }
+    .cate_img {
+      width: 300px;
+      border-radius: 50%;
+      margin: 20px;
+    }
+    .cat-body {
+      max-width: 500px;
+      padding: 20px;
+    }
+    .form-btn {
+      background: hotpink;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin-top: 20px;
+      display: inline-block;
+    }
+    .form-btn:hover{
+        box-shadow: 2px 2px 2px grey;
+    }
+    .btn:hover{
+        box-shadow: 2px 2px 2px grey;
+    }
+    .menu-btn:hover{
+        box-shadow: 2px 2px 2px grey;
+    }
+    .price:hover{
+        box-shadow: 2px 2px 2px grey;
+    }
+    .rec-btn:hover{
+        box-shadow: 2px 2px 2px grey;
+    }
+    
+    footer {
+      background: hotpink;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+    .menu-h1{
+        color: rgb(41, 119, 243);
+    }
+    .recipe-text{
+        color: black;
+        font-family:serif;
+
+    }
+    .rec-tex{
+        background-color: #f8d7da;
+    }
+    .cat-h{
+        color:rgb(0, 89, 255);
+    }
+    .form-btn a{
+        text-decoration: none;
+        color: aliceblue;
+    }
+    .item h3,p{
+        color:black;
+    }
+    .prices{
+        color:black;
+    }
+    .bord{
+        height:10px;
+        background-color: rgb(53, 111, 244);
+    }
+    .scroll-fade {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        background: hotpink;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        display: none;
+      }
+      .navbar ul.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .items {
+        flex-direction: column;
+      }
+      .form {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <img src="assets/logo.png" alt="logo">
+      <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <ul id="navLinks">
+        <li><a href="#">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="#menu">MENU</a></li>
+        <li><a href="#menu">SHOP</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <div class="main">
+    <img src="assets/logo.png" alt="logo" />
+    <h2>BEST ICECREAM</h2>
+    <div class="butn"><a href="contact.html">CONTACT US</a></div>
+  </div>
+
+  <div class="bord"></div>
+
+  <section id="menu" class="menu scroll-fade">
+    <div class="menu-top">
+      <p>Our Flavours</p>
+      <h1 class="menu-h1">MENU</h1>
+      <p>Our everyday flavors are anything but ordinary. Inspired by tastes from around the world. Come daily for our staple flavors!</p>
+      <!-- <div class="menu-btn"><a href="#">See menu</a></div> -->
+    </div>
+
+    <div class="items">
+      <div class="item">
+        <img src="assets/Matcha.jpg" alt="Matcha">
+        <h3>Matcha</h3>
+        <p>Green tea ice cream with almond shavings</p>
+        <div class="prices">Rs 100</div>
+        <div class="price">Add a Scoop</div>
+      </div>
+      <div class="item">
+        <img src="assets/Coco-Mocha-Chip.jpg" alt="Mocha">
+        <h3>Coco Mocha Chip</h3>
+        <p>Almond chocolate with mocha bits</p>
+        <div class="prices">Rs 180</div>
+        <div class="price">Add a Scoop</div>
+      </div>
+      <div class="item">
+        <img src="assets/Cotton-Candy.jpg" alt="Cotton">
+        <h3>Cotton Candy</h3>
+        <p>Sweet candy flavored with fun colors</p>
+        <div class="prices">Rs 120</div>
+        <div class="price">Add a Scoop</div>
+      </div>
+      <div class="item">
+        <img src="assets/Dulce-de-leche.jpg" alt="Cotton">
+        <h3>Dulce de leche</h3>
+        <p>Almond Chocolate Icecream with chocolate shavings </p>
+        <div class="prices">Rs 120</div>
+        <div class="price">Add a Scoop</div>
+      </div>
+    </div>
+  </section>
+  <div class="bord"></div>
+
+  <section class="recipe scroll-fade">
+    <div class="rec-tex">
+        <h2 class="recipe-text">Chill Out with Our Ice Cream Delights</h2>
+    </div>
+    <div class="rec-btn"><a href="recipe.html">Recipes</a></div>
+  </section>
+  <div class="bord"></div>
+
+  <section class="form scroll-fade">
+    <img src="assets/cate.jpg" alt="catering" class="cate_img" />
+    <div class="cat-body">
+      <h2 class="cat-h">CATERING</h2>
+      <p>Have your next party at our shop or let us cater your event! Fill out the form below.</p>
+      <div class="form-btn"><a href="catering.html">Fill Form</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Icecream Store | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+
+      document.addEventListener("DOMContentLoaded", function () {
+    const fadeElements = document.querySelectorAll('.scroll-fade');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Optional: stop observing after animation
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+  });
+  </script>
+</body>
+</html>

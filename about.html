@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Hand+Pre:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Hand+Pre:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <style>
+        @font-face {
+  font-family: 'Cheee';
+  src: url('CheeeVariable.ttf') format('truetype'); /* Place the .ttf in your project */
+}
+           .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: hotpink;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .navbar ul {
+      display: flex;
+      list-style: none;
+    }
+    .navbar ul li {
+      margin: 0 15px;
+    }
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar img {
+      width: 50px;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .bar {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+    }
+        *{
+            padding:0;
+            margin: 0;
+        }
+        .sec-1{
+            background-color: rgb(42, 180, 230);
+            justify-content: center;
+            width:100%;
+            align-items: center;
+        }
+        .sec-1 h1{
+            color:rgb(236, 10, 161);
+            justify-content: center;
+            width:100%;
+            align-items: center;
+            display: flex;
+            font-size: 50px;
+            font-family: "Playfair Display", serif;
+        }
+        .sec-1 h2{
+            padding-top: 30px;
+            color:white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            font-size: 30px;
+        }
+        .sec-1 p{
+            padding-top: 10px;
+            color:white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            font-size: 20px;
+        }
+        .abt-vid{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            
+        }
+        .vid{
+            margin: 30px;
+            width:800px;
+            height:auto;
+            box-shadow: 10px 10px 20px rgb(47, 45, 45);
+        }
+        .abt-p{
+            margin:0 100px;
+            display: flex;
+            color:white;
+            justify-content: center;
+            
+        }
+        .ice p{
+            font-size: 60px;
+            color: rgb(235, 240, 74);
+            font-family: "Playfair Display", serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;  
+        }
+        .sec-2{
+            display: flex;
+            height:400px;
+            width:auto;
+            background-color: pink;
+            padding: 20px;
+        }
+    
+        /* .con{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: aliceblue;
+        } */
+        .sec-2 .cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.sec-2 .con {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.sec-2 .cnt-no {
+  font-size: 48px;
+  font-weight: bold;
+  color: #e63946; /* eye-catching number */
+}
+.sec-2 .cnt-txt{
+color:rgb(57, 57, 57);
+font-size: 20px;
+padding:20px;
+}
+
+@media (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        background: hotpink;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        display: none;
+      }
+      .navbar ul.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+     <header>
+    <nav class="navbar">
+      <img src="assets/logo.png" alt="logo">
+      <div class="hamburger" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <ul id="navLinks">
+        <li><a href="page1.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="#menu">MENU</a></li>
+        <li><a href="#menu">SHOP</a></li>
+      </ul>
+    </nav>
+  </header>
+    <div class="abt-page">
+        <div class="sec-1">
+            <h1>About Us</h1>
+            <h2>At Dasher Crank</h2>
+            <p> Ice cream isn't just dessert — it's a joyful experience, a sweet escape, and a reason to smile.</p>
+            <div class="abt-vid">
+            <video class="vid" autoplay muted loop playsinline>
+            <source src="assets/ice-vid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+            </div>
+            <p class="abt-p">We started with a simple dream: to craft delicious, creamy, and unforgettable ice cream using the finest ingredients, love, and a sprinkle of magic. From classic vanilla to quirky flavors you’ve never imagined, every scoop is made with care and creativity.
+
+            Whether you're craving a cone on a sunny day, celebrating with sundaes, or just need a little comfort in a cup — we’re here to serve happiness, one scoop at a time.</p>
+
+            <p class="str">Join us on our flavor journey. </p>
+
+            <div class="ice">
+                <p>Because life is better with ice cream</p>
+            </div>
+        </div>
+        <div class="sec-2">
+            <div class="mp">
+                <img src="assets/mpp2.jpg" alt="map" >
+            </div>
+            <div class="cnt">
+                <div class="con">
+                    Our Contributions
+                </div>
+                <div class="cnt-no">16000+</div>
+                <div class="cnt-txt">We don’t just manage events — we craft experiences.
+From ideation to execution, our team specializes in delivering seamless, memorable events tailored to your goals. Be it corporate gatherings, cultural festivals, fundraisers, or promotional campaigns — every detail is planned with precision and energy.</div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
